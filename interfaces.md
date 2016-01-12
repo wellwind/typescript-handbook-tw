@@ -6,7 +6,7 @@ TypeScript的一個核心準則是型別驗證專注在資料數值具有的'形
 
 要看看介面是如何運作最簡單的方法就是用一個簡單的範例開始：
 
-```javascript
+```typescript
 function printLabel(labelledObj: {label: string}) {
   console.log(labelledObj.label);
 }
@@ -19,7 +19,7 @@ printLabel(myObj);
 
 我們可以在寫一次同樣的例子，這次我們使用一個介面來描述需要具有'label'的字串型別屬性：
 
-```javascript
+```typescript
 interface LabelledValue {
   label: string;
 }
@@ -42,7 +42,7 @@ printLabel(myObj);
 
 以下是這種模式的例子：
 
-```javascript
+```typescript
 interface SquareConfig {
   color?: string;
   width?: number;
@@ -66,7 +66,7 @@ var mySquare = createSquare({color: "black"});
 
 可選擇屬性的優點是你可以描述這些可能可用的屬性，也能用來捕捉你不預期可用的屬性。例如：如果我們拼錯了傳給'createSquare'中的物件屬性名稱，我們會得到錯誤訊息：
 
-```javascript
+```typescript
 interface SquareConfig {
   color?: string;
   width?: number;
@@ -90,9 +90,9 @@ var mySquare = createSquare({color: "black"});
 
 介面可以廣泛的描述JavaScript物件可用的範圍。除了描述物件的屬性外，介面也可以描述函數型別。
 
-要描述介面的函數型別，我們給函數一個呼叫的簽名(signature)。就像宣告一個只有參數清單與回傳型別別的函數一樣。
+要描述介面的函數型別，我們給函數一個呼叫的簽章(signature)。就像宣告一個只有參數清單與回傳型別別的函數一樣。
 
-```javascript
+```typescript
 interface SearchFunc {
   (source: string, subString: string): boolean;
 }
@@ -101,7 +101,7 @@ interface SearchFunc {
 定義完成後，我們可以像使用其他介面一樣使用這個函數型別的介面。我們在這裡顯示給你看如何建立一個函數型的變數，然後將一個同樣型別的函數指派給它。
 
 
-```javascript
+```typescript
 var mySearch: SearchFunc;
 mySearch = function(source: string, subString: string) {
   var result = source.search(subString);
@@ -116,7 +116,7 @@ mySearch = function(source: string, subString: string) {
 
 要對函數型別做正確的型別檢查，傳遞參數的名稱不需要一致。舉例來說，我們可以寫成像以下例子：
 
-```javascript
+```typescript
 var mySearch: SearchFunc;
 mySearch = function(src: string, sub: string) {
   var result = src.search(sub);
@@ -135,7 +135,7 @@ mySearch = function(src: string, sub: string) {
 
 跟我們使用介面描述函數型別類似，我們也可以用來描述陣列的型別，陣列型別利用有'索引(index)'型別來描述物件中索引應該具有的型別，以及存取索引後須回傳的型別。
 
-```javascript
+```typescript
 interface StringArray {
   [index: number]: string;
 }
@@ -144,14 +144,17 @@ var myArray: StringArray;
 myArray = ["Bob", "Fred"];
 ```
 
-There are two types of supported index types: string and number. It is possible to support both types of index, with the restriction that the type returned from the numeric index must be a subtype of the type returned from the string index.
+索引型別(index types)支援兩種類型:string與number。藉由限制從數值索引回傳的型別必須是從字串索引回傳型別的子型別，要同時支援兩種也是可以的
 
-While index signatures are a powerful way to describe the array and 'dictionary' pattern, they also enforce that all properties match their return type. In this example, the property does not match the more general index, and the type-checker gives an error:
+雖然索引簽章是一種強而有力描述'字典(dictionary)'模式的方法，它們也強迫了所有的屬性必須符合回傳的型別。以下面例子來說，其中的屬性與索引型別不匹配，所以型別檢查器會產生錯誤：
 
+```typescript
 interface Dictionary {
   [index: string]: string;
-  length: number;    // error, the type of 'length' is not a subtype of the indexer
+  length: number;    // 錯誤, 'length'的型別不是索引子的子型別
 } 
+```
+
 Class Types
 Implementing an interface
 One of the most common uses of interfaces in languages like C# and Java, that of explicitly enforcing that a class meets a particular contract, is also possible in TypeScript.
