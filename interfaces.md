@@ -155,13 +155,17 @@ interface Dictionary {
 } 
 ```
 
-Class Types
-Implementing an interface
-One of the most common uses of interfaces in languages like C# and Java, that of explicitly enforcing that a class meets a particular contract, is also possible in TypeScript.
+## 類別型別(Class Types)
 
+### 實作介面
+
+像C#和Java這類語言中最常使用介面的方法之一，就是明確的強迫類別的部分合約必須符合，這在TypeScript中也辦得到。
+
+```typescript
 interface ClockInterface {
     currentTime: Date;
 }
+```
 
 class Clock implements ClockInterface  {
     currentTime: Date;
