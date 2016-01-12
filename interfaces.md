@@ -131,15 +131,18 @@ mySearch = function(src: string, sub: string) {
 
 函數參數會被逐個檢查，每個對應位置的參數型別是否正確。當然，函數回傳的型別也會被檢查(在這裡會檢查false跟true)。當函數內容回傳回數值或字串時，型別檢查會警告我們回傳的型別與在SearchFunc介面中描述的不同。
 
-Array Types
-Similarly to how we can use interfaces to describe function types, we can also describe array types. Array types have an 'index' type that describes the types allowed to index the object, along with the corresponding return type for accessing the index.
+## 陣列型別(Array Types)
 
+跟我們使用介面描述函數型別類似，我們也可以用來描述陣列的型別，陣列型別利用有'索引(index)'型別來描述物件中索引應該具有的型別，以及存取索引後須回傳的型別。
+
+```javascript
 interface StringArray {
   [index: number]: string;
 }
 
 var myArray: StringArray;
 myArray = ["Bob", "Fred"];
+```
 
 There are two types of supported index types: string and number. It is possible to support both types of index, with the restriction that the type returned from the numeric index must be a subtype of the type returned from the string index.
 
