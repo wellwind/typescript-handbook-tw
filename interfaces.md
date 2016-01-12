@@ -267,9 +267,9 @@ square.penWidth = 5.0;
 
 ## 混合型別(Hybrid Types)
 
-As we mentioned earlier, interfaces can describe the rich types present in real world JavaScript. Because of JavaScript's dynamic and flexible nature, you may occasionally encounter an object that works as a combination of some of the types described above. 
+如同之前提過的，介面可以讓真實世界的JavaScript描述豐富的型別。因為JavaScript動態和彈性的天性，你可能偶爾會遇到需要組合以上各種描述的型別組合。
 
-One such example is an object that acts as both a function and an object, with additional properties:
+其中一個例子是物件同時扮演了函數和物件的角色，具有額外的屬性：
 
 ```typescript
 interface Counter {
@@ -284,4 +284,4 @@ c.reset();
 c.interval = 5.0;
 ```
 
-When interacting with 3rd-party JavaScript, you may need to use patterns like the above to fully-describe the shape of the type.
+當和第三方的的JavaScript互動時，你可能需要使用以上的模式來完整呈現型別的形狀。
