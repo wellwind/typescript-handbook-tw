@@ -30,13 +30,12 @@ name = 'smith';
 
 ## Array
 
-TypeScript, like JavaScript, allows you to work with arrays of values. Array types can be written in one of two ways. In the first, you use the type of the elements followed by '[]' to denote an array of that element type:
+TypeScript與JavaScript一樣，允許你操作數值陣列，陣列型別可以用兩種方式撰寫。第一種方式，你可以在宣告的型別後面加上'[]'宣告的型別為陣列。
 
 ```javascript
 var list:number[] = [1, 2, 3];
 ```
-
-The second way uses a generic array type, Array<elemType>:
+第二種方式使用泛型的陣列型別, Array&lt;elemType&gt;
 
 ```javascript
 var list:Array<number> = [1, 2, 3];
