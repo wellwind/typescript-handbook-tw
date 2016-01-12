@@ -62,10 +62,11 @@ function createSquare(config: SquareConfig): {color: string; area: number} {
 var mySquare = createSquare({color: "black"});
 ```
 
-Interfaces with optional properties are written similar to other interfaces, which each optional property denoted with a '?' as part of the property declaration. 
+這個介面寫起來跟其他介面很類似但包含了可選擇的屬性，每個可選擇的屬性宣告並須在前面加上'?'。
 
-The advantage of optional properties is that you can describe these possibly available properties while still also catching properties that you know are not expected to be available. For example, had we mistyped the name of the property we passed to 'createSquare', we would get an error message letting us know:
+可選擇屬性的優點是你可以描述這些可能可用的屬性，也能用來捕捉你不預期可用的屬性。例如：如果我們拼錯了傳給'createSquare'中的物件屬性名稱，我們會得到錯誤訊息：
 
+```javascript
 interface SquareConfig {
   color?: string;
   width?: number;
@@ -74,7 +75,7 @@ interface SquareConfig {
 function createSquare(config: SquareConfig): {color: string; area: number} {
   var newSquare = {color: "white", area: 100};
   if (config.color) {
-    newSquare.color = config.collor;  // Type-checker can catch the mistyped name here
+    newSquare.color = config.collor;  // 型別檢查可以在這裡捕捉拼錯字的問題
   }
   if (config.width) {
     newSquare.area = config.width * config.width;
@@ -83,6 +84,8 @@ function createSquare(config: SquareConfig): {color: string; area: number} {
 }
 
 var mySquare = createSquare({color: "black"});  
+```
+
 Function Types
 Interfaces are capable of describing the wide range of shapes that JavaScript objects can take. In addition to describing an object with properties, interfaces are also capable of describing function types.
 
