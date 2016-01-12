@@ -212,7 +212,7 @@ class Clock implements ClockInterface  {
 
 取而代之的是，當使用類別'靜態'的部分時應該直接使用，在以下例子中，我們會直接使用這個類別：
 
-```typescripe
+```typescript
 interface ClockStatic {
     new (hour: number, minute: number);
 }
@@ -228,9 +228,9 @@ var newClock = new cs(7, 30);
 
 ## 擴充介面(Extending Interfaces)
 
-Like classes, interfaces can extend each other. This handles the task of copying the members of one interface into another, allowing you more freedom in how you separate your interfaces into reusable components.
+就像類別一樣，介面也可以彼此擴充。這可以幫你處理掉將一個介面的成員複製到另外一個介面的工作，讓你有更多的時間切割你的介面到不同可用的元件中。
 
-```typescripe
+```typescript
 interface Shape {
     color: string;
 }
@@ -246,7 +246,7 @@ square.sideLength = 10;
 
 An interface can extend multiple interfaces, creating a combination of all of the interfaces.
 
-```typescripe
+```typescript
 interface Shape {
     color: string;
 }
@@ -271,7 +271,7 @@ As we mentioned earlier, interfaces can describe the rich types present in real 
 
 One such example is an object that acts as both a function and an object, with additional properties:
 
-```typescripe
+```typescript
 interface Counter {
     (start: number): string;
     interval: number;
