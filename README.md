@@ -1,4 +1,8 @@
-My Awesome Book
+TypeScript中文手冊
 =======
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+本手冊翻譯自TypeScript的官方Handbook
+
+網址: http://www.typescriptlang.org/Handbook
+
+個人英文能力有限，翻譯手冊只是為了讓自己能更加理解TypeScript語法，若有翻譯不好的地方歡迎隨時發issue提出。謝謝
