@@ -165,15 +165,16 @@ interface Dictionary {
 interface ClockInterface {
     currentTime: Date;
 }
-```
 
 class Clock implements ClockInterface  {
     currentTime: Date;
     constructor(h: number, m: number) { }
 }
+```
 
-You can also describe methods in an interface that are implemented in the class, as we do with 'setTime' in the below example:
+你也可以在介面中描述要被類別實作的方法，例如以下範例要實做一個'setTime'：
 
+```typescript
 interface ClockInterface {
     currentTime: Date;
     setTime(d: Date);
@@ -186,11 +187,17 @@ class Clock implements ClockInterface  {
     }
     constructor(h: number, m: number) { }
 }
+```
 
 Interfaces describe the public side of the class, rather than both the public and private side. This prohibits you from using them to check that a class also has particular types for the private side of the class instance.
-Difference between static/instance side of class
-When working with classes and interfaces, it helps to keep in mind that a class has two types: the type of the static side and the type of the instance side. You may notice that if you create an interface with a construct signature and try to create a class that implements this interface you get an error:
+(雖然看得懂太不太知道該怎麼翻譯比較好，求救)
 
+
+### 類別中static與instance的不同
+
+當使用類別與見面時，可以幫助你心裡保持兩種類型：靜態(static)型別和實例(instance)型別。你可能注意到了如果你建立一個介面包含了建構的簽章(new)然後嘗試建立類別來時做這個介面，你會得到一個錯誤訊息：
+
+```typescript
 interface ClockInterface {
     new (hour: number, minute: number);
 }
@@ -199,11 +206,13 @@ class Clock implements ClockInterface  {
     currentTime: Date;
     constructor(h: number, m: number) { }
 }
+```
 
-This is because when a class implements an interface, only the instance side of the class is checked. Since the constructor sits in the static side, it is not included in this check.
+這是因為當類別時做介面時，只有類別實例會被檢查，因為建構子是靜態的，因此他不會包含在這之中。
 
-Instead, you would need to work with the 'static' side of the class directly. In this example, we work with the class directly:
+取而代之的是，當使用類別'靜態'的部分時應該直接使用，在以下例子中，我們會直接使用這個類別：
 
+```typescripe
 interface ClockStatic {
     new (hour: number, minute: number);
 }
@@ -215,7 +224,10 @@ class Clock  {
 
 var cs: ClockStatic = Clock;
 var newClock = new cs(7, 30);
-Extending Interfaces
+```
+
+## 擴充介面(Extending Interfaces)
+
 Like classes, interfaces can extend each other. This handles the task of copying the members of one interface into another, allowing you more freedom in how you separate your interfaces into reusable components.
 
 interface Shape {
