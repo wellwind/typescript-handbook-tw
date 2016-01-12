@@ -86,8 +86,9 @@ function createSquare(config: SquareConfig): {color: string; area: number} {
 var mySquare = createSquare({color: "black"});  
 ```
 
-Function Types
-Interfaces are capable of describing the wide range of shapes that JavaScript objects can take. In addition to describing an object with properties, interfaces are also capable of describing function types.
+## 函數型別(Function Types)
+
+介面可以廣泛的描述JavaScript物件可用的範圍。除了描述物件的屬性外，介面也可以描述函數型別。
 
 To describe a function type with an interface, we give the interface a call signature. This is like a function declaration with only the parameter list and return type given.
 
