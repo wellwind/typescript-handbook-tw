@@ -34,6 +34,7 @@ printLabel(myObj);
 
 'LabelledValue'是我們在之前例子中用來描述需求的介面名稱。它仍然表示具有一個名為'label'的字串型別屬性。注意我們不需要明確地說出我們傳遞給'printLabel'的參數需要實作這個介面(在其他程式語言中可能需要)。在這裡我們只在意它的形狀。只要傳遞的物件符合我們列出的需要，就可以了。
 
+值得說明的是型別檢查器不需要說明物件其他的屬性，只需要介面需要的屬性跟型別即可。
 It's worth pointing out that the type-checker does not require that these properties come in any sort of order, only that the properties the interface requires are present and have the required type.
 Optional Properties
 Not all properties of an interface may be required. Some exist under certain conditions or may not be there at all. These optional properties are popular when creating patterns like "option bags" where the user passes an object to a function that only has a couple properties filled in.
