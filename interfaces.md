@@ -230,6 +230,7 @@ var newClock = new cs(7, 30);
 
 Like classes, interfaces can extend each other. This handles the task of copying the members of one interface into another, allowing you more freedom in how you separate your interfaces into reusable components.
 
+```typescripe
 interface Shape {
     color: string;
 }
@@ -241,9 +242,11 @@ interface Square extends Shape {
 var square = <Square>{};
 square.color = "blue";
 square.sideLength = 10;
+```
 
 An interface can extend multiple interfaces, creating a combination of all of the interfaces.
 
+```typescripe
 interface Shape {
     color: string;
 }
@@ -260,11 +263,15 @@ var square = <Square>{};
 square.color = "blue";
 square.sideLength = 10;
 square.penWidth = 5.0;
-Hybrid Types
+```
+
+## 混合型別(Hybrid Types)
+
 As we mentioned earlier, interfaces can describe the rich types present in real world JavaScript. Because of JavaScript's dynamic and flexible nature, you may occasionally encounter an object that works as a combination of some of the types described above. 
 
 One such example is an object that acts as both a function and an object, with additional properties:
 
+```typescripe
 interface Counter {
     (start: number): string;
     interval: number;
@@ -275,5 +282,6 @@ var c: Counter;
 c(10);
 c.reset();
 c.interval = 5.0;
+```
 
 When interacting with 3rd-party JavaScript, you may need to use patterns like the above to fully-describe the shape of the type.
