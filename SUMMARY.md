@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* [基本型別 - Basic Types](basic-typesmd.md)
+* [基本型別 - Basic Types](basic-types.md)
 * [介面 - Interfaces](interfaces.md)
 * [類別 - Classes](classes.md)
 * [模組 - Modules](modules.md)
