@@ -1,10 +1,10 @@
 # 基本型別 - Basic Types
 
-TypeScript定義了幾個最簡單的資料單元例如：numbers, strings, structures, boolean等等。在TypeScript中支持許多在JavaScript可以看到的型別，包含了一個方便的列舉型別。
+為了讓程式運作，我們需要使用一些最簡單的資料單元例如：numbers, strings, structures, boolean等等。在TypeScript中支持許多在JavaScript可以看到的型別，包含了一個方便的列舉型別來讓其更完整。
 
 ## Boolean
 
-最近本的資料型別是簡單的true/false value，在JavaScript和TypeScript(甚至其他語言)中稱為"布林"。
+最基本的資料型別是簡單的true/false value，在JavaScript和TypeScript(甚至其他語言)中稱為'boolea'值。
 
 
 ```javascript
@@ -13,7 +13,7 @@ var isDone: boolean = false;
 
 ## Number
 
-As in JavaScript, all numbers in TypeScript are floating point values. These floating point numbers get the type 'number'.
+如同在JavaScript中一樣，所有在TypeScript的數值資料皆為浮點數，這些浮點數的型別為'number'。
 
 ```javascript
 var height: number = 6;
@@ -21,7 +21,7 @@ var height: number = 6;
 
 ## String
 
-Another fundamental part of creating programs in JavaScript for webpages and servers alike is working with textual data. As in other languages, we use the type 'string' to refer to these textual datatypes. Just like JavaScript, TypeScript also uses the double quote (") or single quote (') to surround string data.
+另一個在網頁或伺服計端的JavaScriptt程式運作的基本是文字資料，如同其他語言一樣，我們使用'string'代表這些文字的資料型別。和JavaScript一樣，TypeScript也使用雙引號(")或單引號(')來將字串資料包住。
 
 ```javascript
 var name: string = "bob";
