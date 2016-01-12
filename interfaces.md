@@ -15,10 +15,11 @@ var myObj = {size: 10, label: "Size 10 Object"};
 printLabel(myObj);
 ```
 
-The type-checker checks the call to 'printLabel'. The 'printLabel' function has a single parameter that requires that the object passed in has a property called 'label' of type string. Notice that our object actually has more properties than this, but the compiler only checks to that at least the ones required are present and match the types required. 
+型別檢查器會檢查'printLabel'的呼叫。'printLabel'函數只有一個參數需要傳遞具有'label'的字串型別屬性的物件。我們的傳遞物件當然可能會有多個屬性，但編譯器只檢查至少具有我們需要且型別正確的內容。
 
-We can write the same example again, this time using an interface to describe the requirement of having the 'label' property that is a string:
+我們可以在寫一次同樣的例子，這次我們使用一個介面來描述需要具有'label'的字串型別屬性：
 
+```javascript
 interface LabelledValue {
   label: string;
 }
@@ -29,8 +30,9 @@ function printLabel(labelledObj: LabelledValue) {
 
 var myObj = {size: 10, label: "Size 10 Object"};
 printLabel(myObj);
+```
 
-The interface 'LabelledValue' is a name we can now use to describe the requirement in the previous example. It still represents having a single property called 'label' that is of type string. Notice we didn't have to explicitly say that the object we pass to 'printLabel' implements this interface like we might have to in other languages. Here, it's only the shape that matters. If the object we pass to the function meets the requirements listed, then it's allowed.
+'LabelledValue'是我們在之前例子中用來描述需求的介面名稱。它仍然表示具有一個名為'label'的字串型別屬性。注意我們不需要明確地說出我們傳遞給'printLabel'的參數需要實作這個介面(在其他程式語言中可能需要)。在這裡我們只在意它的形狀。只要傳遞的物件符合我們列出的需要，就可以了。
 
 It's worth pointing out that the type-checker does not require that these properties come in any sort of order, only that the properties the interface requires are present and have the required type.
 Optional Properties
