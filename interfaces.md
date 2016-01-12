@@ -90,15 +90,18 @@ var mySquare = createSquare({color: "black"});
 
 介面可以廣泛的描述JavaScript物件可用的範圍。除了描述物件的屬性外，介面也可以描述函數型別。
 
-要描述介面的函數型別，我們給函數一個呼叫的簽名(signature)。
-To describe a function type with an interface, we give the interface a call signature. This is like a function declaration with only the parameter list and return type given.
+要描述介面的函數型別，我們給函數一個呼叫的簽名(signature)。就像宣告一個只有參數清單與回傳型別別的函數一樣。
 
+```javascript
 interface SearchFunc {
   (source: string, subString: string): boolean;
 }
+```
 
-Once defined, we can use this function type interface like we would other interfaces. Here, we show how you can create a variable of a function type and assign it a function value of the same type.
+定義完成後，我們可以像使用其他介面一樣使用這個函數型別的介面。我們在這裡顯示給你看如何建立一個函數型的變數，然後將一個同樣型別的函數指派給它。
 
+
+```javascript
 var mySearch: SearchFunc;
 mySearch = function(source: string, subString: string) {
   var result = source.search(subString);
@@ -109,6 +112,7 @@ mySearch = function(source: string, subString: string) {
     return true;
   }
 }
+```
 
 For function types to correctly type-check, the name of the parameters do not need to match. We could have, for example, written the above example like this:
 
