@@ -1,5 +1,5 @@
 # Summary
 
 * [Introduction](README.md)
-* [基本的Types - Basic Types](basic-types.md)
+* [基本的Types - Basic Types](ch01-basic-types.md)
 
