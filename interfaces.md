@@ -90,6 +90,7 @@ var mySquare = createSquare({color: "black"});
 
 介面可以廣泛的描述JavaScript物件可用的範圍。除了描述物件的屬性外，介面也可以描述函數型別。
 
+要描述介面的函數型別，我們給函數一個呼叫的簽名(signature)。
 To describe a function type with an interface, we give the interface a call signature. This is like a function declaration with only the parameter list and return type given.
 
 interface SearchFunc {
