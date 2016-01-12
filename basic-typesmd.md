@@ -43,28 +43,29 @@ var list:Array<number> = [1, 2, 3];
 
 ## Enum
 
-A helpful addition to the standard set of datatypes from JavaScript is the 'enum'. Like languages like C#, an enum is a way of giving more friendly names to sets of numeric values.
+在JavaScript中有一個對於標準的資料型別集合很有幫助的額外補充為'enum'。像C#這類語言一樣，列舉型別是一個讓一組數值有更友善的名稱表示的方法。
+
 
 ```javascript
 enum Color {Red, Green, Blue};
 var c: Color = Color.Green;
 ```
 
-By default, enums begin numbering their members starting at 0. You can change this by manually setting the value of one its members. For example, we can start the previous example at 1 instead of 0:
+列許型別預設從0開始給予其中每個成員編號。你可以藉由設定其中一個數成員的數值來改變它。例如：我們可以將讓上一個例子由1開始：
 
 ```javascript
 enum Color {Red = 1, Green, Blue};
 var c: Color = Color.Green;
 ```
 
-Or, even manually set all the values in the enum:
+甚至我們可以為每個列舉成員設定它代表的值：e enum:
 
 ```javascript
 enum Color {Red = 1, Green = 2, Blue = 4};
 var c: Color = Color.Green;
 ```
 
-A handy feature of enums is that you can also go from a numeric value to the name of that value in the enum. For example, if we had the value 2 but weren't sure which that mapped to in the Color enum above, we could look up the corresponding name:
+你也可以從列舉成員的對應數值來找到它的名稱，例如我們知道一個列舉成員的值為2但不知道它對應到上面宣告的Color列舉中的哪個成員，我們可以找出它對應的名稱：
 
 ```javascript
 enum Color {Red = 1, Green, Blue};
@@ -75,17 +76,16 @@ alert(colorName);
 
 ## Any
 
-We may need to describe the type of variables that we may not know when we are writing the application. These values may come from dynamic content, eg from the user or 3rd party library. In these cases, we want to opt-out of type-checking and let the values pass through compile-time checks. To do so, we label these with the 'any' type:
+當在撰寫程式時我們可能還不知道要如何描述一個變數的資料型別。這些值可能是來自動態的內容例如使用者或第三方的類別庫。這種情況下為了讓編譯檢查可以通過，我們會想要將它移除型別檢查的範圍。我們可使用'any'型別來達到此目的：
 
 ```javascript
 var notSure: any = 4;
 notSure = "maybe a string instead";
 notSure = false; // okay, definitely a boolean
 ```
+在同時使用現有的JavaScript時'any'型別是非常有利的做法，可以讓你在編譯時逐步的將型別加入檢查。
 
-The 'any' type is a powerful way to work with existing JavaScript, allowing you to gradually opt-in and opt-out of type-checking during compilation.
-
-The 'any' type is also handy if you know some part of the type, but perhaps not all of it. For example, you may have an array but the array has a mix of different types:
+如果在你只知道一部份的型別，但不是全部知道時'any'型別也非常好用，例如，你有一個混合了不同型別的陣列時：
 
 ```javascript
 var list:any[] = [1, true, "free"];
@@ -95,7 +95,8 @@ list[1] = 100;
 
 ## Void
 
-Perhaps the opposite in some ways to 'any' is 'void', the absence of having any type at all. You may commonly see this as the return type of functions that do not return a value:
+'void'與'any'可能是剛好相反的作法，代表根本沒有任的型別，你通常可以在不會回傳任何型別的function中看到：
+
 
 ```javascript
 function warnUser(): void {
