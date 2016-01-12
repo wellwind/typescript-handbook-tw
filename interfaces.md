@@ -129,7 +129,8 @@ mySearch = function(src: string, sub: string) {
 }
 ```
 
-Function parameters are checked one at a time, with the type in each corresponding parameter position checked against each other. Here, also, the return type of our function expression is implied by the values it returns (here false and true). Had the function expression returned numbers or strings, the type-checker would have warned us that return type doesn't match the return type described in the SearchFunc interface.
+函數參數會被逐個檢查，每個對應位置的參數型別是否正確。當然，函數回傳的型別也會被檢查(在這裡會檢查false跟true)。當函數內容回傳回數值或字串時，型別檢查會警告我們回傳的型別與在SearchFunc介面中描述的不同。
+
 Array Types
 Similarly to how we can use interfaces to describe function types, we can also describe array types. Array types have an 'index' type that describes the types allowed to index the object, along with the corresponding return type for accessing the index.
 
