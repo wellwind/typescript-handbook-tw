@@ -64,7 +64,7 @@ sam.move();
 tom.move(34);
 ```
 
-This example covers quite a bit of the inheritance features in TypeScript that are common to other languages. Here we see using the 'extends' keywords to create a subclass. You can see this where 'Horse' and 'Snake' subclass the base class 'Animal' and gain access to its features.
+這個例子涵蓋了許多TypeScript中繼承的特性，我們在這裡使用'extends'關鍵字來建立一個子類別，你可以看到'Hourse'和'Snake'子類別都是以'Animal'類別為基礎並獲得'Animal'的特徵。
 
 The example also shows off being able to override methods in the base class with methods that are specialized for the subclass. Here both 'Snake' and 'Horse' create a 'move' method that overrides the 'move' from 'Animal', giving it functionality specific to each class.
 Private/Public modifiers
