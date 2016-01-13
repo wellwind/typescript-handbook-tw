@@ -134,7 +134,7 @@ class Animal {
 
 如此使用'private'會建立一個並處史話一個私有的成員, 使用'public'也有相似得效果。
 
-## 存取子(Accessors)
+## 存取修飾子(Accessors)
 
 TypeScript支援getters/setters來當作一個擷取物件成員的方法。這使你能有粒度更細的方法來控制如何存取每個物件中的成員。
 
@@ -183,6 +183,7 @@ if (employee.fullName) {
 }
 ```
 
+為了證明我們的存取修飾子
 To prove to ourselves that our accessor is now checking the passcode, we can modify the passcode and see that when it doesn't match we instead get the alert box warning us we don't have access to update the employee.
 
 Note: Accessors require you to set the compiler to output ECMAScript 5.
