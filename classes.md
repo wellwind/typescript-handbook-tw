@@ -212,9 +212,9 @@ alert(grid2.calculateDistanceFromOrigin({x: 10, y: 10}));
 
 ## Advanced Techniques
 
-### Constructor functions
+### 建構子函數(Constructor functions)
 
-When you declare a class in TypeScript, you are actually creating multiple declarations at the same time. The first is the type of the instance of the class.
+當你在TypeScript中宣告一個類別時，你其實同時建立了多個宣告，第一個是類別實例的型別。
 
 ```typescript
 class Greeter {
@@ -232,11 +232,11 @@ greeter = new Greeter("world");
 alert(greeter.greet());
 ```
 
-Here, when we say 'var greeter: Greeter', we're using Greeter as the type of instances of the class Greeter. This is almost second nature to programmers from other object-oriented languages. 
+在此當我們說到'var greeter: Greeter'時，我們正使用Greeter作為Greeter類別的實力。這在其他物件導向語言幾乎是第二個天性。
 
-We're also creating another value that we call the constructor function. This is the function that is called when we 'new' up instances of the class. To see what this looks like in practice, let's take a look at the JavaScript created by the above example:
+當建構子呼叫時我們也可以建立其他的值。這是一個當我們'new'一個實體時會呼叫的函數。讓我們來看看上面例子實際上會產生什麼樣的JavaScript程式碼：
 
-```typescript
+```javascript
 var Greeter = (function () {
     function Greeter(message) {
         this.greeting = message;
@@ -251,10 +251,9 @@ var greeter;
 greeter = new Greeter("world");
 alert(greeter.greet());
 ```
+'var Greeter'被指派了一個建構子函數。都我們用'new'呼叫到這個函數時，我們可以得到一個類別的實例。建構子也包含了所有的類別靜態成員。另一種思考每個類別的方法是，它們都有實例(instance)的一面與靜態(static)的一面。
 
-Here, 'var Greeter' is going to be assigned the constructor function. When we call 'new' and run this function, we get an instance of the class. The constructor function also contains all of the static members of the class. Another way to think of each class is that there is an instance side and a static side.
-
-Let's modify the example a bit to show this difference:
+接下來對之前的範例做一點修改：
 
 ```typescript
 class Greeter {
@@ -280,9 +279,10 @@ var greeter2:Greeter = new greeterMaker();
 alert(greeter2.greet());
 ```
 
-In this example, 'greeter1' works similarly to before. We instantiate the 'Greeter' class, and use this object. This we have seen before.
+在這個例子中，'greeter1'運作跟之前很類似，我們建立了一個'Greeter'類別的實例，然後我們使用這個物件，這跟我們之前看到的一樣。
 
-Next, we then use the class directly. Here we create a new variable called 'greeterMaker'. This variable will hold the class itself, or said another way its constructor function. Here we use 'typeof Greeter', that is "give me the type of the Greeter class itself" rather than the instance type. Or, more precisely, "give me the type of the symbol called Greeter", which is the type of the constructor function. This type will contain all of the static members of Greeter along with the constructor that creates instances of the Greeter class. We show this by using 'new' on 'greeterMaker', creating new instances of 'Greeter' and invoking them as before.
+接著，我們直接的使用類別。在這裡我們建立一個新的'greeterMaker'變數。這個變數持用類別自己，或者說它是一個建構子函數。在此我們使用'typeof Greeter'，這代表"給我Greeter類別自己的型別"，而不是它的實例型別。或更精準說"給我一個名為Greeter的符號"，它的型別是建構子函數
+ This type will contain all of the static members of Greeter along with the constructor that creates instances of the Greeter class. We show this by using 'new' on 'greeterMaker', creating new instances of 'Greeter' and invoking them as before.
 Using a class as an interface
 As we said in the previous section, a class declaration creates two things: a type representing instances of the class and a constructor function. Because classes create types, you can use them in the same places you would be able to use interfaces.
 
