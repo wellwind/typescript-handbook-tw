@@ -117,9 +117,10 @@ animal = rhino;
 animal = employee; //錯誤: Animal和Employee不相容
 ```
 
-這個例子中。我們有'Animal'和'Rhino'，'Rhino'是'Animal'的子類別。我們也有另外一個新的'Employee'類別看起來跟'Animal'的形狀一樣。我們對這些類別建立實例並嘗試指派給彼此來看看會發生什麼事。因為'Animal'和'Rhino'共享同樣的形狀中相同宣告的私有成員為'Animal'中的'private name: string'，所以它們是相容的。
-In this example, we have an 'Animal' and a 'Rhino', with 'Rhino' being a subclass of 'Animal'. We also have a new class 'Employee' that looks identical to 'Animal' in terms of shape. We create some instances of these classes and then try to assign them to each other to see what will happen. Because 'Animal' and 'Rhino' share the private side of their shape from the same declaration of 'private name: string' in 'Animal', they are compatible. However, this is not the case for 'Employee'. When we try to assign from an 'Employee' to 'Animal' we get an error that these types are not compatible. Even though 'Employee' also has a private member called 'name', it is not the same one as the one created in 'Animal'. 
-Parameter properties
+這個例子中。我們有'Animal'和'Rhino'，'Rhino'是'Animal'的子類別。我們也有另外一個新的'Employee'類別看起來跟'Animal'的形狀一樣。我們對這些類別建立實例並嘗試指派給彼此來看看會發生什麼事。因為'Animal'和'Rhino'共享同樣的形狀中相同宣告的私有成員為'Animal'中的'private name: string'，所以它們是相容的。當我們嘗試將'Employee'指派給'Animal'時會發生型別不相容的錯誤。儘管'Employee'也有一個名為'name'的私有成員，但它跟在'Animal'中建立的是不同的。
+
+### 參數屬性(Parameter properties)
+
 The keywords 'public' and 'private' also give you a shorthand for creating and initializing members of your class, by creating parameter properties. The properties let you can create and initialize a member in one step. Here's a further revision of the previous example. Notice how we drop 'theName' altogether and just use the shortened 'private name: string' parameter on the constructor to create and initialize the 'name' member.
 
 class Animal {
