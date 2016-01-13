@@ -89,9 +89,8 @@ class Animal {
 ### 深入了解private
 
 TypeScript是一種結構式的型別系統。當我們比較兩個不同型別的成員時，無論他們來自哪裡，只要每個型別中的成員是相容的，那麼我們就會說這兩個型別是相容的。
-TypeScript is a structural type system. When we compare two different types, regardless of where they came from, if the types of each member are compatible, then we say the types themselves are compatible. 
 
-When comparing types that have 'private' members, we treat these differently. For two types to be considered compatible, if one of them has a private member, then the other must have a private member that originated in the same declaration. 
+當比較到具有'private'的成員時，我們會用不同的方式處理。對於兩個型別是否相容，如果其中一個型別的成員為私有的，那麼另外一個型別也必須有一樣的宣告。
 
 Let's look at an example to better see how this plays out in practice:
 
