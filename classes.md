@@ -183,11 +183,13 @@ if (employee.fullName) {
 }
 ```
 
-為了證明我們的存取修飾子
-To prove to ourselves that our accessor is now checking the passcode, we can modify the passcode and see that when it doesn't match we instead get the alert box warning us we don't have access to update the employee.
+為了證明我們的存取修飾子現在會檢查通關密碼，我們可以修改'passcode'的內容來看看當它不符合時我們會看到一個沒有辦法更新employees內容錯誤的訊息。
 
-Note: Accessors require you to set the compiler to output ECMAScript 5.
-Static Properties
+注意：使用存取修飾子需要你將編譯器設定輸出為ECMAScript 5。
+
+
+## 靜態屬性(Static Properties)
+
 Up to this point, we've only talked about the instance members of the class, those that show up on the object when its instantiated. We can also create static members of a class, those that are visible on the class itself rather than on the instances. In this example, we use 'static' on the origin, as it's a general value for all grids. Each instance accesses this value through prepending the name of the class. Similarly to prepending 'this.' in front of instance accesses, here we prepend 'Grid.' in front of static accesses.
 ```typescript
 class Grid {
