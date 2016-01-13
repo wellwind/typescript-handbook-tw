@@ -152,9 +152,9 @@ if (employee.fullName) {
 }
 ```
 
-While allowing people to randomly set fullName directly is pretty handy, this might get us in trouble if we people can change names on a whim. 
+雖然讓人們隨意設定fullName屬性很方便，但要是可以隨心所欲的的修改人們的名字也會造成麻煩。
 
-In this version, we check to make sure the user has a secret passcode available before we allow them to modify the employee. We do this by replacing the direct access to fullName with a 'set' that will check the passcode. We add a corresponding 'get' to allow the previous example to continue to work seamlessly.
+在接下來這個版本，我們要確認user有一個祕密的通關密碼才可以修改。我們在'set'部分中替換成一個要檢查通關密碼的程式。我們加了一個對應的'get'程式來讓之前的範例一樣可以運作：
 
 ```typescript
 var passcode = "secret passcode";
