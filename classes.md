@@ -90,10 +90,11 @@ class Animal {
 
 TypeScript是一種結構式的型別系統。當我們比較兩個不同型別的成員時，無論他們來自哪裡，只要每個型別中的成員是相容的，那麼我們就會說這兩個型別是相容的。
 
-當比較到具有'private'的成員時，我們會用不同的方式處理。對於兩個型別是否相容，如果其中一個型別的成員為私有的，那麼另外一個型別也必須有一樣的宣告。
+當比較到具有'private'的成員時，我們會用不同的方式處理。對於兩個型別是否相容，如果其中一個型別具有私有成員，那麼另外一個型別一定也會有一個私有成員是來自源頭的宣告。
 
-Let's look at an example to better see how this plays out in practice:
+來看個例子比較容易看出實際上的情況：
 
+```typescript
 class Animal {
     private name:string;
     constructor(theName: string) { this.name = theName; }
@@ -113,8 +114,10 @@ var rhino = new Rhino();
 var employee = new Employee("Bob");
 
 animal = rhino;
-animal = employee; //error: Animal and Employee are not compatible
+animal = employee; //錯誤: Animal和Employee不相容
+```
 
+這個例子中。我們有'Animal'和'Rhino'，'Rhino'是'Animal'的子類別。我們也有另外一個新的'Employee'類別看起來跟'Animal'的形狀一樣。
 In this example, we have an 'Animal' and a 'Rhino', with 'Rhino' being a subclass of 'Animal'. We also have a new class 'Employee' that looks identical to 'Animal' in terms of shape. We create some instances of these classes and then try to assign them to each other to see what will happen. Because 'Animal' and 'Rhino' share the private side of their shape from the same declaration of 'private name: string' in 'Animal', they are compatible. However, this is not the case for 'Employee'. When we try to assign from an 'Employee' to 'Animal' we get an error that these types are not compatible. Even though 'Employee' also has a private member called 'name', it is not the same one as the one created in 'Animal'. 
 Parameter properties
 The keywords 'public' and 'private' also give you a shorthand for creating and initializing members of your class, by creating parameter properties. The properties let you can create and initialize a member in one step. Here's a further revision of the previous example. Notice how we drop 'theName' altogether and just use the shortened 'private name: string' parameter on the constructor to create and initialize the 'name' member.
