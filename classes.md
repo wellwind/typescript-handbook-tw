@@ -56,12 +56,13 @@ class Horse extends Animal {
         super.move(meters);
     }
 }
-```
+
 var sam = new Snake("Sammy the Python");
 var tom: Animal = new Horse("Tommy the Palomino");
 
 sam.move();
 tom.move(34);
+```
 
 This example covers quite a bit of the inheritance features in TypeScript that are common to other languages. Here we see using the 'extends' keywords to create a subclass. You can see this where 'Horse' and 'Snake' subclass the base class 'Animal' and gain access to its features.
 
