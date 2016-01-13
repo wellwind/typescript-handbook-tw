@@ -2,7 +2,7 @@
 
 Traditional JavaScript focuses on functions and prototype-based inheritance as the basic means of building up reusable components, but this may feel a bit awkward to programmers more comfortable with an object-oriented approach, where classes inherit functionality and objects are built from these classes. Starting with ECMAScript 6, the next version of JavaScript, JavaScript programmers will be able to build their applications using this object-oriented class-based approach. In TypeScript, we allow developers to use these techniques now, and compile them down to JavaScript that works across all major browsers and platforms, without having to wait for the next version of JavaScript.
 
-## Classes
+## 類別(Classes)
 
 首先先來看個簡單的類別範例：
 
@@ -26,7 +26,7 @@ var greeter = new Greeter("world");
 
 最後一行我們使用'new'建立了一個Greeter類別的實例。這會呼叫我們之前定義好的建構子，建立一個新的具有Greeter外型的物件，然後執行建構子來初始化它。
 
-## Inheritance
+## 繼承(Inheritance)
 
 在TypeScript中我們可以使用物件導向的模式。當然，其中一個以類別為基礎(class-based)的程式設計基本模式是我們可以利用繼承來擴充現有類別並產生一個新的類別。
 
@@ -66,9 +66,12 @@ tom.move(34);
 
 這個例子涵蓋了許多TypeScript中繼承的特性，我們在這裡使用'extends'關鍵字來建立一個子類別，你可以看到'Hourse'和'Snake'子類別都是以'Animal'類別為基礎並獲得'Animal'的特徵。
 
-The example also shows off being able to override methods in the base class with methods that are specialized for the subclass. Here both 'Snake' and 'Horse' create a 'move' method that overrides the 'move' from 'Animal', giving it functionality specific to each class.
-Private/Public modifiers
-Public by default
+這個例子也展示了我們可以在子類別中覆蓋基礎類別具有的方法。'Snake'和'Hourse'建立了一個'move'方法來故蓋掉原有了'Animal'的'move'方法，讓他在各自的類別中有專門的功能。
+
+## 私有/公用 修飾子(Private/Public modifiers)
+
+### 預設為公用(Public)
+
 You may have noticed in the above examples we haven't had to use the word 'public' to make any of the members of the class visible. Languages like C# require that each member be explicitly labelled 'public' to be visible. In TypeScript, each member is public by default. 
 
 You may still mark members a private, so you control what is publicly visible outside of your class. We could have written the 'Animal' class from the previous section like so:
