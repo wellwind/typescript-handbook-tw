@@ -74,8 +74,9 @@ tom.move(34);
 
 你可能注意到了上面的範例中我們並沒有使用'public'來讓人和類別成員顯示。輛C#這類的語言需要明確的標示'public'來讓成員顯示。而在TypeScript中，所有類別成員預設都是公開的。
 
-You may still mark members a private, so you control what is publicly visible outside of your class. We could have written the 'Animal' class from the previous section like so:
+你依然可以將成員標示為'private'，藉此控制那些成員在類別外是可見的。我們可以將之前的'Animal'類別改寫成：
 
+```typescript
 class Animal {
     private name:string;
     constructor(theName: string) { this.name = theName; }
@@ -83,7 +84,11 @@ class Animal {
         alert(this.name + " moved " + meters + "m.");
     }
 }
-Understanding private
+```
+
+### 深入了解private
+
+TypeScript是一種結構式的型別系統。當我們比較兩個不同型別的成員時，無論他們來自哪裡，只要每個型別中的成員是相容的，那麼我們就會說這兩個型別是相容的。
 TypeScript is a structural type system. When we compare two different types, regardless of where they came from, if the types of each member are compatible, then we say the types themselves are compatible. 
 
 When comparing types that have 'private' members, we treat these differently. For two types to be considered compatible, if one of them has a private member, then the other must have a private member that originated in the same declaration. 
