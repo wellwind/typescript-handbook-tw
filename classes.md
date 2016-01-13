@@ -281,10 +281,11 @@ alert(greeter2.greet());
 
 在這個例子中，'greeter1'運作跟之前很類似，我們建立了一個'Greeter'類別的實例，然後我們使用這個物件，這跟我們之前看到的一樣。
 
-接著，我們直接的使用類別。在這裡我們建立一個新的'greeterMaker'變數。這個變數持用類別自己，或者說它是一個建構子函數。在此我們使用'typeof Greeter'，這代表"給我Greeter類別自己的型別"，而不是它的實例型別。或更精準說"給我一個名為Greeter的符號"，它的型別是建構子函數
- This type will contain all of the static members of Greeter along with the constructor that creates instances of the Greeter class. We show this by using 'new' on 'greeterMaker', creating new instances of 'Greeter' and invoking them as before.
-Using a class as an interface
-As we said in the previous section, a class declaration creates two things: a type representing instances of the class and a constructor function. Because classes create types, you can use them in the same places you would be able to use interfaces.
+接著，我們直接的使用類別。在這裡我們建立一個新的'greeterMaker'變數。這個變數持用類別自己，或者說它是一個建構子函數。在此我們使用'typeof Greeter'，這代表"給我Greeter類別自己的型別"，而不是它的實例型別。或更精準說"給我一個名為Greeter的符號"，它的型別是建構子函數。雖著建構子建立了Greeter類別的實例，這個型別包含了所有Greeter的靜態成員。我們接著用對'greeterMaker'使用'new'，來建立一個新的'Greeter'實例然後和之前一樣調用它。
+
+### 將類別當作介面使用(Using a class as an interface)
+
+如統之前章節所說，類別宣告建立兩件事情：一個類別型別的實例和一個建構子函數。因為類別也建立型別，你可以把他跟介面用在同樣的地方。
 
 ```typescript
 class Point {
