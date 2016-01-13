@@ -135,10 +135,12 @@ class Animal {
 如此使用'private'會建立一個並處史話一個私有的成員, 使用'public'也有相似得效果。
 
 ## 存取子(Accessors)
-TypeScript supports getters/setters as a way of intercepting accesses to a member of an object. This gives you a way of having finer-grained control over how a member is accessed on each object.
 
-Let's convert a simple class to use 'get' and 'set'. First, let's start with an example without getters and setters.
+TypeScript支援getters/setters來當作一個擷取物件成員的方法。這使你能有粒度更細的方法來控制如何存取每個物件中的成員。
 
+讓我們使用'get'和'set'在一個簡單的類別中。我們先從一個沒有getters和setters的例子開始。
+
+```typescript
 class Employee {
     fullName: string;
 }
@@ -148,6 +150,7 @@ employee.fullName = "Bob Smith";
 if (employee.fullName) {
     alert(employee.fullName);
 }
+```
 
 While allowing people to randomly set fullName directly is pretty handy, this might get us in trouble if we people can change names on a whim. 
 
