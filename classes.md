@@ -72,7 +72,7 @@ tom.move(34);
 
 ### 預設為公用(Public)
 
-You may have noticed in the above examples we haven't had to use the word 'public' to make any of the members of the class visible. Languages like C# require that each member be explicitly labelled 'public' to be visible. In TypeScript, each member is public by default. 
+你可能注意到了上面的範例中我們並沒有使用'public'來讓人和類別成員顯示。輛C#這類的語言需要明確的標示'public'來讓成員顯示。而在TypeScript中，所有類別成員預設都是公開的。
 
 You may still mark members a private, so you control what is publicly visible outside of your class. We could have written the 'Animal' class from the previous section like so:
 
