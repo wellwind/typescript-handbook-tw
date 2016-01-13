@@ -27,10 +27,12 @@ var greeter = new Greeter("world");
 最後一行我們使用'new'建立了一個Greeter類別的實例。這會呼叫我們之前定義好的建構子，建立一個新的具有Greeter外型的物件，然後執行建構子來初始化它。
 
 ## Inheritance
-In TypeScript, we can use common object-oriented patterns. Of course, one of the most fundamental patterns in class-based programming is being able to extend existing classes to create new ones using inheritance.
 
-Let's take a look at an example:
+在TypeScript中我們可以使用物件導向的模式。當然，其中一個以類別為基礎(class-based)的程式設計基本模式是我們可以利用繼承來擴充現有類別並產生一個新的類別。
 
+讓我們來看以下這個例子：
+
+```typescript
 class Animal {
     name:string;
     constructor(theName: string) { this.name = theName; }
@@ -54,7 +56,7 @@ class Horse extends Animal {
         super.move(meters);
     }
 }
-
+```
 var sam = new Snake("Sammy the Python");
 var tom: Animal = new Horse("Tommy the Palomino");
 
