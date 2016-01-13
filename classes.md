@@ -22,10 +22,11 @@ var greeter = new Greeter("world");
 
 如果你用過C#或Java，上面的表達方式看起來會很熟悉。我們軒高了一個新的'Greeter'類別。這個類別包含三個成員，有一個'greeting'屬性，一個建構子和一個'greet'方法。
 
-You'll notice that in the class when we refer to one of the members of the class we prepend 'this.'. This denotes that it's a member access.
+你會發現在類別中當我們要參考類別成員時我們會在前面加上'this.'。這代表了要存取其中的成員。
 
-In the last line we construct an instance of the Greeter class using 'new'. This calls into the constructor we defined earlier, creating a new object with the Greeter shape, and running the constructor to initialize it.
-Inheritance
+最後一行我們使用'new'建立了一個Greeter類別的實例。這會呼叫我們之前定義好的建構子，建立一個新的具有Greeter外型的物件，然後執行建構子來初始化它。
+
+## Inheritance
 In TypeScript, we can use common object-oriented patterns. Of course, one of the most fundamental patterns in class-based programming is being able to extend existing classes to create new ones using inheritance.
 
 Let's take a look at an example:
