@@ -190,7 +190,8 @@ if (employee.fullName) {
 
 ## 靜態屬性(Static Properties)
 
-Up to this point, we've only talked about the instance members of the class, those that show up on the object when its instantiated. We can also create static members of a class, those that are visible on the class itself rather than on the instances. In this example, we use 'static' on the origin, as it's a general value for all grids. Each instance accesses this value through prepending the name of the class. Similarly to prepending 'this.' in front of instance accesses, here we prepend 'Grid.' in front of static accesses.
+到目前為止，我們只討論到關於類別實體的成員，這些會在物件實例化時出現。我們也可以建立類別的靜態成員，這些靜態成員會出現在類別自己身上而不是類別的實例。接下來的例子中，我們在origin屬性加上'static'，讓他在所有Grid類別中可使用中。每個實體要存取這個資料必須透過在前面加上類別名稱。就像加上'this.'一樣，我們在存取靜態成員時在前面加上了'Grid.'。
+
 ```typescript
 class Grid {
     static origin = {x: 0, y: 0};
