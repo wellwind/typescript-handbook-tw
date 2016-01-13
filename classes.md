@@ -1,6 +1,6 @@
 # 類別 - Classes
 
-Traditional JavaScript focuses on functions and prototype-based inheritance as the basic means of building up reusable components, but this may feel a bit awkward to programmers more comfortable with an object-oriented approach, where classes inherit functionality and objects are built from these classes. Starting with ECMAScript 6, the next version of JavaScript, JavaScript programmers will be able to build their applications using this object-oriented class-based approach. In TypeScript, we allow developers to use these techniques now, and compile them down to JavaScript that works across all major browsers and platforms, without having to wait for the next version of JavaScript.
+傳統的JavaScript專注在函數和以雛型為基礎(prototype-based)的架構上當作建立可重用性組件的基本概念，但這可能會讓一些型慣用物件導向開發的程式設計師感覺到有些尷尬，其中類別繼承的功能和目標是來自於建構這些類別。從ECMAScript 6開始，之後的JavaScript版本程式設計人員可以使用物件導向的方式來建立應用程式。而在TypeScript，我們現在就可以使用這些技術，並將程式碼編譯成主流的瀏覽器及平台相容的版本，而不用等待下一個JavaScript版本出現。
 
 ## 類別(Classes)
 
