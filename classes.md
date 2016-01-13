@@ -68,7 +68,7 @@ tom.move(34);
 
 這個例子也展示了我們可以在子類別中覆蓋基礎類別具有的方法。'Snake'和'Hourse'建立了一個'move'方法來故蓋掉原有了'Animal'的'move'方法，讓他在各自的類別中有專門的功能。
 
-## 私有/公用 修飾子(Private/Public modifiers)
+## 私有/公用修飾子(Private/Public modifiers)
 
 ### 預設為公用(Public)
 
@@ -121,17 +121,20 @@ animal = employee; //錯誤: Animal和Employee不相容
 
 ### 參數屬性(Parameter properties)
 
-The keywords 'public' and 'private' also give you a shorthand for creating and initializing members of your class, by creating parameter properties. The properties let you can create and initialize a member in one step. Here's a further revision of the previous example. Notice how we drop 'theName' altogether and just use the shortened 'private name: string' parameter on the constructor to create and initialize the 'name' member.
+藉由參數屬性，'public'和'private'關鍵字也可以用來作為建立和初始化類別成員的方法。這些屬性讓你可以一步建立和初始化成員。下面是之前例子的一個修改版本。注意我們移除'theName'然後在建構中使用'private name: string'參數來建立並初始化'name'成員。
 
+```typescript
 class Animal {
     constructor(private name: string) { }
     move(meters: number) {
         alert(this.name + " moved " + meters + "m.");
     }
 }
+```
 
-Using 'private' in this way creates and initializes a private member, and similarly for 'public'. 
-Accessors
+如此使用'private'會建立一個並處史話一個私有的成員, 使用'public'也有相似得效果。
+
+## 存取子(Accessors)
 TypeScript supports getters/setters as a way of intercepting accesses to a member of an object. This gives you a way of having finer-grained control over how a member is accessed on each object.
 
 Let's convert a simple class to use 'get' and 'set'. First, let's start with an example without getters and setters.
