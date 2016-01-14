@@ -42,7 +42,7 @@ strings.forEach(s => {
 });
 ```
 
-## Adding Modularity
+### Adding Modularity
 
 As we add more validators, we're going to want to have some kind of organization scheme so that we can keep track of our types and not worry about name collisions with other objects. Instead of putting lots of different names into the global namespace, let's wrap up our objects into a module.
 
@@ -86,18 +86,23 @@ strings.forEach(s => {
 });
 ```
 
-Splitting Across Files
+## Splitting Across Files
 As our application grows, we'll want to split the code across multiple files to make it easier to maintain.
 
 Here, we've split our Validation module across many files. Even though the files are separate, they can each contribute to the same module and can be consumed as if they were all defined in one place. Because there are dependencies between files, we've added reference tags to tell the compiler about the relationships between the files. Our test code is otherwise unchanged.
+
 Multi-file internal modules
+
 Validation.ts
+```typescript
 module Validation {
     export interface StringValidator {
         isAcceptable(s: string): boolean;
     }
 }
+```
 LettersOnlyValidator.ts
+```typescript
 /// <reference path="Validation.ts" />
 module Validation {
     var lettersRegexp = /^[A-Za-z]+$/;
@@ -107,7 +112,10 @@ module Validation {
         }
     }
 }
+```
+
 ZipCodeValidator.ts
+```typescript
 /// <reference path="Validation.ts" />
 module Validation {
     var numberRegexp = /^[0-9]+$/;
@@ -117,7 +125,10 @@ module Validation {
         }
     }
 }
+```
+
 Test.ts
+```typescript
 /// <reference path="Validation.ts" />
 /// <reference path="LettersOnlyValidator.ts" />
 /// <reference path="ZipCodeValidator.ts" />
@@ -134,6 +145,7 @@ strings.forEach(s => {
         console.log('"' + s + '" ' + (validators[name].isAcceptable(s) ? ' matches ' : ' does not match ') + name);
     }
 });
+```
 
 Once there are multiple files involved, we'll need to make sure all of the compiled code gets loaded. There are two ways of doing this.
 
@@ -144,13 +156,17 @@ The compiler will automatically order the output file based on the reference tag
 tsc --out sample.js Validation.ts LettersOnlyValidator.ts ZipCodeValidator.ts Test.ts
 
 
-Alternatively, we can use per-file compilation (the default) to emit one JavaScript file for each input file. If multiple JS files get produced, we'll need to use <script> tags on our webpage to load each emitted file in the appropriate order, for example:
+Alternatively, we can use per-file compilation (the default) to emit one JavaScript file for each input file. If multiple JS files get produced, we'll need to use &lt;script&gt; tags on our webpage to load each emitted file in the appropriate order, for example:
 MyTestPage.html (excerpt)
+
+```html
     <script src="Validation.js" type="text/javascript" />
     <script src="LettersOnlyValidator.js" type="text/javascript" />
     <script src="ZipCodeValidator.js" type="text/javascript" />
     <script src="Test.js" type="text/javascript" />
-Going External
+```    
+## Going External
+
 TypeScript also has the concept of an external module. External modules are used in two cases: node.js and require.js. Applications not using node.js or require.js do not need to use external modules and can best be organized using the internal module concept outlined above.
 
 In external modules, relationships between files are specified in terms of imports and exports at the file level. In TypeScript, any file containing a top-level import or export is considered an external module.
@@ -159,7 +175,9 @@ Below, we have converted the previous example to use external modules. Notice th
 
 The reference tags have been replaced with import statements that specify the dependencies between modules. The import statement has two parts: the name that the module will be known by in this file, and the require keyword that specifies the path to the required module:
 
+```typescript
 import someMod = require('someModule');
+```
 
 We specify which objects are visible outside the module by using the export keyword on a top-level declaration, similarly to how export defined the public surface area of an internal module.
 
@@ -172,6 +190,7 @@ export interface StringValidator {
     isAcceptable(s: string): boolean;
 }
 LettersOnlyValidator.ts
+```typescript
 import validation = require('./Validation');
 var lettersRegexp = /^[A-Za-z]+$/;
 export class LettersOnlyValidator implements validation.StringValidator {
@@ -179,7 +198,10 @@ export class LettersOnlyValidator implements validation.StringValidator {
         return lettersRegexp.test(s);
     }
 }
+```
+
 ZipCodeValidator.ts
+```typescript
 import validation = require('./Validation');
 var numberRegexp = /^[0-9]+$/;
 export class ZipCodeValidator implements validation.StringValidator {
@@ -187,7 +209,10 @@ export class ZipCodeValidator implements validation.StringValidator {
         return s.length === 5 && numberRegexp.test(s);
     }
 }
+```
+
 Test.ts
+```typescript
 import validation = require('./Validation');
 import zip = require('./ZipCodeValidator');
 import letters = require('./LettersOnlyValidator');
@@ -204,6 +229,7 @@ strings.forEach(s => {
         console.log('"' + s + '" ' + (validators[name].isAcceptable(s) ? ' matches ' : ' does not match ') + name);
     }
 });
+```
 Code Generation for External Modules
 Depending on the module target specified during compilation, the compiler will generate appropriate code for either node.js (commonjs) or require.js (AMD) module-loading systems. For more information on what the define and require calls in the generated code do, consult the documentation for each module loader.
 
@@ -218,7 +244,9 @@ define(["require", "exports", 'mod'], function(require, exports, m) {
 CommonJS / Node SimpleModule.js:
 var m = require('mod');
 exports.t = m.something + 1;
-Export =
+
+## Export =
+
 In the previous example, when we consumed each validator, each module only exported one value. In cases like this, it's cumbersome to work with these symbols through their qualified name when a single identifier would do just as well.
 
 The export = syntax specifies a single object that is exported from the module. This can be a class, interface, module, function, or enum. When imported, the exported symbol is consumed directly and is not qualified by any name.
