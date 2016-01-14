@@ -86,12 +86,13 @@ strings.forEach(s => {
 });
 ```
 
-## Splitting Across Files
-As our application grows, we'll want to split the code across multiple files to make it easier to maintain.
+## 分割到多個檔案
 
-Here, we've split our Validation module across many files. Even though the files are separate, they can each contribute to the same module and can be consumed as if they were all defined in one place. Because there are dependencies between files, we've added reference tags to tell the compiler about the relationships between the files. Our test code is otherwise unchanged.
+當我們的程式越來越大時，我們需要將程式碼分割到不同的檔案以便於維護。
 
-Multi-file internal modules
+接下來我們將Validation模組分割到多個檔案中。儘管檔案被分開了，它們還是可以共用同一個模組，就像他們被定義在同一個地方一樣。因為他們節由檔案相依，我們要加上reference標籤告訴編譯器檔案之間的關聯。我們的測試程式碼在這裡不做修改。
+
+### Multi-file internal modules
 
 Validation.ts
 ```typescript
