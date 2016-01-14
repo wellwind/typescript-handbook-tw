@@ -42,9 +42,9 @@ strings.forEach(s => {
 });
 ```
 
-### Adding Modularity
+### 加入模組化
 
-As we add more validators, we're going to want to have some kind of organization scheme so that we can keep track of our types and not worry about name collisions with other objects. Instead of putting lots of different names into the global namespace, let's wrap up our objects into a module.
+當我們有更多的驗證器時，我們需要更有規劃的組織來追蹤型別而又不用擔心與其他物件的命名衝突。比起將一大堆的命名放在全域的命名空間(global namespace)中，我們可以把這些物件包裝進一個模組中。
 
 In this example, we've moved all the Validator-related types into a module called Validation. Because we want the interfaces and classes here to be visible outside the module, we preface them with export. Conversely, the variables lettersRegexp and numberRegexp are implementation details, so they are left unexported and will not be visible to code outside the module. In the test code at the bottom of the file, we now need to qualify the names of the types when used outside the module, e.g. Validation.LettersOnlyValidator.
 
