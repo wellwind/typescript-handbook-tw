@@ -2,10 +2,11 @@
 
 接下來我們要看利用TypeScript的模組功能組織程式碼的一些方法。將會涵蓋內部跟外部的模組，然後我們將會探討當如何使用及何時適用。我們也會提到一些關於使用外部模組的進階議題，和使用TypeScript模組時常見的陷阱。
 
-## First steps
-Let's start with the program we'll be using as our example throughout this page. We've written a small set of simplistic string validators, like you might use when checking a user's input on a form in a webpage or checking the format of an externally-provided data file.
+### 第一步
 
-<b>Validators in a single file</b>
+我們以接下來的程式作為整個章節的開始。我們已經寫了一小組簡單的字串驗證器程式，就像你可能會在網頁上檢查使用者在表單中輸入的內容格式，或是檢查外部檔案類型一樣。
+
+#### 單一檔案中的驗證器
 
 ```typescript
 interface StringValidator {
