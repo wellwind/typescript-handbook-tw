@@ -162,15 +162,17 @@ tsc --out sample.js Test.ts
 tsc --out sample.js Validation.ts LettersOnlyValidator.ts ZipCodeValidator.ts Test.ts
 ```
 
-Alternatively, we can use per-file compilation (the default) to emit one JavaScript file for each input file. If multiple JS files get produced, we'll need to use &lt;script&gt; tags on our webpage to load each emitted file in the appropriate order, for example:
-MyTestPage.html (excerpt)
+除此之外，我們可以將每個檔案都利用預設的編譯方式輸出成各自的JavaScript檔案，當這些檔案被產生後，我們需要在網頁中使用&lt;script&gt;標籤來依序讀取檔案，例如：, for example:
+
+MyTestPage.html (片段程式)
 
 ```html
     <script src="Validation.js" type="text/javascript" />
     <script src="LettersOnlyValidator.js" type="text/javascript" />
     <script src="ZipCodeValidator.js" type="text/javascript" />
     <script src="Test.js" type="text/javascript" />
-```    
+```
+
 ## Going External
 
 TypeScript also has the concept of an external module. External modules are used in two cases: node.js and require.js. Applications not using node.js or require.js do not need to use external modules and can best be organized using the internal module concept outlined above.
