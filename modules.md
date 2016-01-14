@@ -148,15 +148,15 @@ strings.forEach(s => {
 });
 ```
 
-Once there are multiple files involved, we'll need to make sure all of the compiled code gets loaded. There are two ways of doing this.
+當在些檔案被包含進來後，我們必須要確認所有程式碼都被編譯進來，有兩中方式可以做到。
 
-First, we can use concatenated output using the --out flag to compile all of the input files into a single JavaScript output file:
+第一個，我們可以藉由 --out 參數來將輸入的檔案編譯一個JavaScript之中。
 
 ```
 tsc --out sample.js Test.ts
 ```
 
-The compiler will automatically order the output file based on the reference tags present in the files. You can also specify each file individually:
+編譯器會自動依照檔案中reference標籤來排序到輸出檔案中，你也可以獨立指定每個檔案。
 
 ```
 tsc --out sample.js Validation.ts LettersOnlyValidator.ts ZipCodeValidator.ts Test.ts
