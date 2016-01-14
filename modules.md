@@ -173,9 +173,9 @@ MyTestPage.html (片段程式)
     <script src="Test.js" type="text/javascript" />
 ```
 
-## Going External
+## 往外部移動
 
-TypeScript also has the concept of an external module. External modules are used in two cases: node.js and require.js. Applications not using node.js or require.js do not need to use external modules and can best be organized using the internal module concept outlined above.
+TypeScript也有外部模組的概念。外部模組被用在兩種狀況：node.js和require.js。不使用node.js或require.js的程式不會需要用到外部模組，且最好的組織方法就是使用之前說明的內部模組概念。
 
 In external modules, relationships between files are specified in terms of imports and exports at the file level. In TypeScript, any file containing a top-level import or export is considered an external module.
 
