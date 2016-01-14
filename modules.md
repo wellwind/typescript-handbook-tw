@@ -46,9 +46,9 @@ strings.forEach(s => {
 
 當我們有更多的驗證器時，我們需要更有規劃的組織來追蹤型別而又不用擔心與其他物件的命名衝突。比起將一大堆的命名放在全域的命名空間(global namespace)中，我們可以把這些物件包裝進一個模組中。
 
-In this example, we've moved all the Validator-related types into a module called Validation. Because we want the interfaces and classes here to be visible outside the module, we preface them with export. Conversely, the variables lettersRegexp and numberRegexp are implementation details, so they are left unexported and will not be visible to code outside the module. In the test code at the bottom of the file, we now need to qualify the names of the types when used outside the module, e.g. Validation.LettersOnlyValidator.
+在接下來的例子我們相驗證器相關的型別放到一個Validation模組中。因為我們希望相關的介面跟類別在模組外是可用的，我以我們替它們加上'export'。相反的letterRegexp和numberRegexp是實作的細節，所以我們要讓它無法讓模組外的程式碼看得到。在檔案下面的測試程式碼中，當我們在模組外要使用這些型別時我們需要修飾型別的名稱，例如Validation.LettersOnlyValidator。
 
-### Modularized Validators
+#### 模組化後的驗證器
 
 ```typescript
 module Validation {
