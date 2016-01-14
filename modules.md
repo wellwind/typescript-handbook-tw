@@ -1,9 +1,13 @@
 # 模組 - Modules
 
-This post outlines the various ways to organize your code using modules in TypeScript. We'll be covering internal and external modules and we'll discuss when each is appropriate and how to use them. We'll also go over some advanced topics of how to use external modules, and address some common pitfalls when using modules in TypeScript.
-First steps
+接下來我們要看利用TypeScript的模組功能組織程式碼的一些方法。將會涵蓋內部跟外部的模組，然後我們將會探討當如何使用及何時適用。我們也會提到一些關於使用外部模組的進階議題，和使用TypeScript模組時常見的陷阱。
+
+## First steps
 Let's start with the program we'll be using as our example throughout this page. We've written a small set of simplistic string validators, like you might use when checking a user's input on a form in a webpage or checking the format of an externally-provided data file.
-Validators in a single file
+
+<b>Validators in a single file</b>
+
+```typescript
 interface StringValidator {
     isAcceptable(s: string): boolean;
 }
@@ -35,11 +39,17 @@ strings.forEach(s => {
         console.log('"' + s + '" ' + (validators[name].isAcceptable(s) ? ' matches ' : ' does not match ') + name);
     }
 });
-Adding Modularity
+```
+
+## Adding Modularity
+
 As we add more validators, we're going to want to have some kind of organization scheme so that we can keep track of our types and not worry about name collisions with other objects. Instead of putting lots of different names into the global namespace, let's wrap up our objects into a module.
 
 In this example, we've moved all the Validator-related types into a module called Validation. Because we want the interfaces and classes here to be visible outside the module, we preface them with export. Conversely, the variables lettersRegexp and numberRegexp are implementation details, so they are left unexported and will not be visible to code outside the module. In the test code at the bottom of the file, we now need to qualify the names of the types when used outside the module, e.g. Validation.LettersOnlyValidator.
-Modularized Validators
+
+### Modularized Validators
+
+```typescript
 module Validation {
     export interface StringValidator {
         isAcceptable(s: string): boolean;
@@ -73,6 +83,8 @@ strings.forEach(s => {
         console.log('"' + s + '" ' + (validators[name].isAcceptable(s) ? ' matches ' : ' does not match ') + name);
     }
 });
+```
+
 Splitting Across Files
 As our application grows, we'll want to split the code across multiple files to make it easier to maintain.
 
